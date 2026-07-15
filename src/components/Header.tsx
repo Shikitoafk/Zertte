@@ -29,24 +29,26 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-brand-bg/85 backdrop-blur-md border-b border-brand-ink/10 py-3 shadow-sm"
+          ? "bg-slate-950/70 backdrop-blur-md border-b border-white/10 py-3 shadow-lg"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - Premium white pill wrapper for dark-theme contrast */}
           <a
             href="#"
             onClick={(e) => handleNavClick(e, "#")}
-            className="flex items-center gap-2 group focus-visible:outline-none"
+            className="flex items-center focus-visible:outline-none"
             aria-label="На главную"
           >
-            <img
-              src="/logo.png"
-              alt="Zertte Biological Organization"
-              className="h-12 w-auto object-contain mix-blend-multiply"
-            />
+            <div className="bg-white px-3.5 py-1.5 rounded-xl h-11 flex items-center justify-center border border-white/10 shadow-sm transition-all hover:bg-white/95">
+              <img
+                src="/logo.png"
+                alt="Zertte Biological Organization"
+                className="h-full w-auto object-contain"
+              />
+            </div>
           </a>
 
           {/* Desktop Navigation */}
@@ -56,19 +58,19 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="font-sans font-medium text-sm text-brand-ink/80 hover:text-brand-teal transition-colors duration-200"
+                className="font-sans font-medium text-sm text-white/80 hover:text-brand-teal transition-colors duration-200"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Action Button */}
+          {/* Action Button - Soft Gradient */}
           <div className="hidden md:flex items-center">
             <a
               href="#registration"
               onClick={(e) => handleNavClick(e, "#registration")}
-              className="px-5 py-2.5 bg-brand-ink hover:bg-brand-teal text-brand-bg font-sans font-semibold text-sm rounded-lg transition-all duration-200 transform hover:-translate-y-0.5 shadow-sm"
+              className="px-5 py-2.5 bg-gradient-to-r from-brand-teal to-brand-tealDeep hover:brightness-110 text-white font-sans font-bold text-sm rounded-lg transition-all duration-200 transform hover:-translate-y-0.5 shadow-md shadow-brand-teal/10"
             >
               {LANDING_CONTENT.hero.primaryCta}
             </a>
@@ -78,7 +80,7 @@ export default function Header() {
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-brand-ink hover:text-brand-teal transition-colors focus-visible:outline-none"
+              className="p-2 text-white hover:text-brand-teal transition-colors focus-visible:outline-none"
               aria-expanded={isOpen}
               aria-label="Открыть меню навигации"
             >
@@ -90,7 +92,7 @@ export default function Header() {
 
       {/* Mobile Drawer */}
       <div
-        className={`md:hidden fixed inset-x-0 top-[60px] bg-brand-bg border-b border-brand-ink/10 transition-all duration-300 ease-in-out origin-top ${
+        className={`md:hidden fixed inset-x-0 top-[60px] bg-slate-950/95 backdrop-blur-lg border-b border-white/10 transition-all duration-300 ease-in-out origin-top ${
           isOpen ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0 pointer-events-none"
         }`}
       >
@@ -100,7 +102,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="w-full text-center py-3 font-sans font-medium text-base text-brand-ink/80 hover:text-brand-teal hover:bg-brand-bgAlt rounded-lg transition-all"
+              className="w-full text-center py-3 font-sans font-medium text-base text-white/80 hover:text-brand-teal hover:bg-white/5 rounded-lg transition-all"
             >
               {link.label}
             </a>
@@ -108,7 +110,7 @@ export default function Header() {
           <a
             href="#registration"
             onClick={(e) => handleNavClick(e, "#registration")}
-            className="w-full text-center py-3 mt-2 bg-brand-teal hover:bg-brand-tealDeep text-white font-sans font-semibold text-sm rounded-lg transition-all"
+            className="w-full text-center py-3 mt-2 bg-gradient-to-r from-brand-teal to-brand-tealDeep text-white font-sans font-bold text-sm rounded-lg transition-all"
           >
             {LANDING_CONTENT.hero.primaryCta}
           </a>
