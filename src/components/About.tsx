@@ -6,87 +6,124 @@ import { Target, Users, Award } from "lucide-react";
 export default function About() {
   const { title, subtitle, cards } = LANDING_CONTENT.about;
 
-  // Map icon strings or index to Lucide Icons
   const getIcon = (color: string) => {
     switch (color) {
       case "teal":
-        return <Target className="w-8 h-8 text-brand-teal" />;
+        return <Target className="w-6 h-6 text-brand-teal" />;
       case "coral":
-        return <Users className="w-8 h-8 text-brand-coral" />;
+        return <Users className="w-6 h-6 text-brand-coral" />;
       case "yellow":
-        return <Award className="w-8 h-8 text-brand-yellow" style={{ filter: "brightness(0.9)" }} />;
+        return <Award className="w-6 h-6 text-brand-yellow" style={{ filter: "brightness(0.9)" }} />;
       default:
-        return <Target className="w-8 h-8 text-brand-teal" />;
+        return <Target className="w-6 h-6 text-brand-teal" />;
     }
   };
 
   const getBorderColor = (color: string) => {
     switch (color) {
       case "teal":
-        return "border-brand-teal/30 hover:border-brand-teal focus-within:border-brand-teal";
+        return "hover:border-brand-teal/40 hover:shadow-brand-teal/5";
       case "coral":
-        return "border-brand-coral/30 hover:border-brand-coral focus-within:border-brand-coral";
+        return "hover:border-brand-coral/40 hover:shadow-brand-coral/5";
       case "yellow":
-        return "border-brand-yellow/40 hover:border-brand-yellow focus-within:border-brand-yellow";
+        return "hover:border-brand-yellow/50 hover:shadow-brand-yellow/5";
       default:
-        return "border-brand-teal/30";
+        return "hover:border-brand-teal/40";
     }
   };
 
-  const getBgGlow = (color: string) => {
+  const getBgGlowColor = (color: string) => {
     switch (color) {
       case "teal":
-        return "bg-brand-teal/5";
+        return "bg-brand-teal/5 text-brand-teal";
       case "coral":
-        return "bg-brand-coral/5";
+        return "bg-brand-coral/5 text-brand-coral";
       case "yellow":
-        return "bg-brand-yellow/5";
+        return "bg-brand-yellow/5 text-brand-yellow";
       default:
-        return "bg-brand-teal/5";
+        return "bg-brand-teal/5 text-brand-teal";
+    }
+  };
+
+  const getDNASequence = (color: string) => {
+    switch (color) {
+      case "teal":
+        return "A T G C T G C T G C T G C T G C";
+      case "coral":
+        return "C G A T C G A T C G A T C G A T";
+      case "yellow":
+        return "T A C G T A C G T A C G T A C G";
+      default:
+        return "A T G C T G C";
     }
   };
 
   return (
-    <section id="about" className="py-24 bg-brand-bgAlt/50 relative overflow-hidden scroll-mt-12">
-      {/* Decorative blurred backgrounds */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-yellow/10 rounded-full blur-[100px] pointer-events-none translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-teal/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/2 translate-y-1/2" />
+    <section id="about" className="py-24 bg-brand-bg relative overflow-hidden scroll-mt-12">
+      {/* Decorative vertical lines */}
+      <div className="absolute top-0 bottom-0 left-[15%] w-px bg-brand-ink/5 hidden md:block" />
+      <div className="absolute top-0 bottom-0 right-[15%] w-px bg-brand-ink/5 hidden md:block" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 reveal">
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-brand-ink mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-20 reveal">
+          <span className="font-mono text-[10px] font-bold text-brand-teal uppercase tracking-widest bg-brand-teal/10 px-3 py-1 rounded-md">
+            [ABOUT_OVERVIEW]
+          </span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-brand-ink mt-4 mb-4">
             {title}
           </h2>
+          <div className="w-12 h-0.5 bg-brand-teal mx-auto mb-6" />
           <p className="font-sans text-base sm:text-lg text-brand-ink/75">
             {subtitle}
           </p>
         </div>
 
-        {/* 3 Cards Grid */}
+        {/* 3 Cards Grid - Lab notebooks/spec sheets structure */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {cards.map((card, idx) => (
             <div
               key={idx}
-              className={`reveal relative p-8 rounded-2xl border bg-brand-bg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col items-start ${getBorderColor(
+              className={`reveal flex flex-col p-8 rounded-2xl border border-brand-ink/8 bg-brand-bgAlt/40 hover:bg-brand-bg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 relative group overflow-hidden ${getBorderColor(
                 card.color
               )}`}
               style={{ transitionDelay: `${idx * 0.1}s` }}
             >
-              {/* Card Icon container */}
-              <div className={`p-4 rounded-xl mb-6 ${getBgGlow(card.color)}`}>
-                {getIcon(card.color)}
+              {/* Top spec sheet indexing */}
+              <div className="flex justify-between items-center mb-6">
+                <span className="font-mono text-[9px] font-bold text-brand-ink/30 tracking-wider">
+                  [SPEC_ID: 0x0{idx + 1}]
+                </span>
+                <span className="font-mono text-[9px] font-bold text-brand-ink/30">
+                  STATUS: VERIFIED
+                </span>
               </div>
 
-              {/* Card Title */}
-              <h3 className="font-display font-bold text-xl text-brand-ink mb-4">
-                {card.title}
-              </h3>
+              {/* Icon & Title */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`p-3 rounded-xl ${getBgGlowColor(card.color)}`}>
+                  {getIcon(card.color)}
+                </div>
+                <h3 className="font-display font-bold text-lg sm:text-xl text-brand-ink">
+                  {card.title}
+                </h3>
+              </div>
 
-              {/* Card Description */}
-              <p className="font-sans text-sm sm:text-base text-brand-ink/80 leading-relaxed">
+              {/* Divider */}
+              <div className="h-px bg-brand-ink/5 w-full mb-6" />
+
+              {/* Content Description */}
+              <p className="font-sans text-sm sm:text-base text-brand-ink/75 leading-relaxed flex-grow mb-8">
                 {card.description}
               </p>
+
+              {/* Bottom genomic sequence deco */}
+              <div className="mt-auto flex items-center justify-between font-mono text-[8px] text-brand-ink/20 border-t border-brand-ink/5 pt-4">
+                <span className="tracking-widest uppercase">
+                  {getDNASequence(card.color)}
+                </span>
+                <span>[COMPLETED]</span>
+              </div>
             </div>
           ))}
         </div>
