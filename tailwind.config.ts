@@ -9,8 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "var(--bg)",
+        foreground: "var(--ink)",
+        brand: {
+          bg: "var(--bg)",
+          bgAlt: "var(--bg-alt)",
+          ink: "var(--ink)",
+          teal: "var(--teal)",
+          tealDeep: "var(--teal-deep)",
+          coral: "var(--coral)",
+          yellow: "var(--yellow)",
+          lavender: "var(--lavender)",
+          dark: "var(--dark)",
+        },
+      },
+      fontFamily: {
+        display: ["var(--font-space-grotesk)", "sans-serif"],
+        sans: ["var(--font-plus-jakarta)", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "monospace"],
       },
     },
   },
