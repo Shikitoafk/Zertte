@@ -32,7 +32,7 @@ export default function Tracks() {
         </div>
 
         {/* Tracks Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
           {list.map((track, idx) => (
             <div
               key={idx}

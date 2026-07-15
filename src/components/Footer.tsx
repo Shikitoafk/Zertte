@@ -39,19 +39,16 @@ export default function Footer() {
             <a
               href="#"
               onClick={(e) => handleNavClick(e, "#")}
-              className="flex items-center gap-3 focus-visible:outline-none"
+              className="inline-flex bg-white px-3 py-1.5 rounded-xl h-12 items-center justify-center focus-visible:outline-none"
             >
-              <div className="flex gap-1">
-                <span className="w-3 h-3 rounded-full bg-brand-teal" />
-                <span className="w-3 h-3 rounded-full bg-brand-coral" />
-                <span className="w-3 h-3 rounded-full bg-brand-yellow" />
-              </div>
-              <span className="font-display font-bold text-xl tracking-tight text-white">
-                Zertte <span className="text-brand-teal">Case</span>
-              </span>
+              <img
+                src="/logo.png"
+                alt="Zertte Biological Organization"
+                className="h-full w-auto object-contain"
+              />
             </a>
             <p className="font-sans text-xs sm:text-sm text-brand-bg/60 max-w-sm leading-relaxed">
-              Главное студенческое событие в сфере вычислительной биологии и клинической геномики. Развиваем сообщество молодых биоинформатиков.
+              Главное соревнование по вычислительной биологии и клинической геномике для школьников 8–12 классов. Развиваем сообщество молодых биоинформатиков.
             </p>
           </div>
 

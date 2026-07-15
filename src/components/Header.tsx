@@ -39,18 +39,14 @@ export default function Header() {
           <a
             href="#"
             onClick={(e) => handleNavClick(e, "#")}
-            className="flex items-center gap-3 group focus-visible:outline-none"
+            className="flex items-center gap-2 group focus-visible:outline-none"
             aria-label="На главную"
           >
-            {/* Logo Icon (3 colored dots representing nucleotides) */}
-            <div className="flex gap-1">
-              <span className="w-3 h-3 rounded-full bg-brand-teal animate-pulse" />
-              <span className="w-3 h-3 rounded-full bg-brand-coral" style={{ animationDelay: "0.2s" }} />
-              <span className="w-3 h-3 rounded-full bg-brand-yellow" style={{ animationDelay: "0.4s" }} />
-            </div>
-            <span className="font-display font-bold text-xl tracking-tight text-brand-ink">
-              Zertte <span className="text-brand-teal">Case</span>
-            </span>
+            <img
+              src="/logo.png"
+              alt="Zertte Biological Organization"
+              className="h-12 w-auto object-contain mix-blend-multiply"
+            />
           </a>
 
           {/* Desktop Navigation */}
