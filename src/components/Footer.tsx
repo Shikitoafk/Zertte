@@ -39,12 +39,12 @@ export default function Footer() {
             <a
               href="#"
               onClick={(e) => handleNavClick(e, "#")}
-              className="inline-flex bg-white px-3 py-1.5 rounded-xl h-12 items-center justify-center focus-visible:outline-none"
+              className="inline-flex items-center focus-visible:outline-none"
             >
               <img
-                src="/logo.png"
-                alt="Zertte Biological Organization"
-                className="h-full w-auto object-contain"
+                src="/wide.jpg"
+                alt="Zertte Case Championship"
+                className="h-14 w-auto object-contain rounded-lg transition-opacity hover:opacity-90"
               />
             </a>
             <p className="font-sans text-xs sm:text-sm text-brand-bg/60 max-w-sm leading-relaxed">

@@ -42,13 +42,11 @@ export default function Header() {
             className="flex items-center focus-visible:outline-none"
             aria-label="На главную"
           >
-            <div className="bg-white px-3.5 py-1.5 rounded-xl h-11 flex items-center justify-center border border-white/10 shadow-sm transition-all hover:bg-white/95">
-              <img
-                src="/logo.png"
-                alt="Zertte Biological Organization"
-                className="h-full w-auto object-contain"
-              />
-            </div>
+            <img
+              src="/dark.jpg"
+              alt="Zertte Case Championship"
+              className="h-11 w-auto object-contain rounded-xl transition-opacity hover:opacity-90"
+            />
           </a>
 
           {/* Desktop Navigation */}
